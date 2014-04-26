@@ -1,12 +1,13 @@
 class LocationsController < ApplicationController
   def index
-  	@active_familes = Location.alphabetical.paginate(:page => params[:page]).per_page(10)
+  	@active_locations = Location.alphabetical.paginate(:page => params[:page]).per_page(10)
   	@inactive_locations = Location.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
   	#alphabetical instead?
-  	@camps = @location.camps.chronological.to_a
+    @past_camps = @location.camps.past.chronological.to_a
+  	@upcoming_camps = @location.camps.upcoming.chronological.to_a
   end
 
   def new
