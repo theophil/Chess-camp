@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  
   def index
   	@active_students = Student.active.chronological.paginate(:page => params[:page]).per_page(10)
   	@inactive_students = Student.inactive.chronological.paginate(:page => params[:page]).per_page(10)
@@ -21,6 +23,7 @@ class StudentsController < ApplicationController
   end
 
   def create
+  	adjust_ratings
     @student = Registration.new(student_params)
     if @student.save
       redirect_to @student, notice: "The student #{@student.student.first_name @student.student.last_name} was added to the system."
@@ -30,6 +33,7 @@ class StudentsController < ApplicationController
   end
 
   def update
+  	adjust_ratings
     if @student.update(student_params)
       redirect_to @student, notice: "The student #{@student.student.first_name @student.student.last_name} was revised in the system."
     else
@@ -50,6 +54,9 @@ class StudentsController < ApplicationController
     def student_params
       params.require(:student).permit(:first_name, :last_name, :family_id, :date_of_birth, :rating, :active)
     end
-end
+
+    def adjust_ratings
+      params[:student][:rating] = 0 if params[:student][:rating].nil? 
+    end
 
 end

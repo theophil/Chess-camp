@@ -1,4 +1,6 @@
 class FamiliesController < ApplicationController
+  before_action :set_family, only: [:show, :edit, :update, :destroy]
+  
   def index
   	@active_familes = Family.alphabetical.paginate(:page => params[:page]).per_page(10)
   	@inactive_families = Family.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -45,5 +47,4 @@ class FamiliesController < ApplicationController
     def family_params
       params.require(:family).permit(:family_name, :parent_first_name, :email, :phone, :active)
     end
-end
 end

@@ -1,24 +1,12 @@
 ChessCamp::Application.routes.draw do
-  get "users/new"
-  get "users/edit"
-  get "registrations/new"
-  get "registrations/edit"
-  get "students/index"
-  get "students/show"
-  get "students/new"
-  get "students/edit"
-  get "locations/index"
-  get "locations/show"
-  get "locations/new"
-  get "locations/edit"
-  get "families/index"
-  get "families/show"
-  get "families/new"
-  get "families/edit"
   # generated routes
   resources :curriculums
   resources :instructors
   resources :camps
+  resources :families
+  resources :registrations
+  resources :students
+  resources :users
 
   # semi-static routes
   get 'home', to: 'home#index', as: :home

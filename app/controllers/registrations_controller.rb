@@ -1,4 +1,6 @@
 class RegistrationsController < ApplicationController
+  before_action :set_registration, only: [:edit, :update, :destroy]
+
   def new
     @registration = Registration.new
   end
@@ -36,6 +38,5 @@ class RegistrationsController < ApplicationController
     def registration_params
       params.require(:registration).permit(:camp_id, :student_id, :payment_status, :points_earned)
     end
-end
 
 end
