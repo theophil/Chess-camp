@@ -1,13 +1,55 @@
 class StudentsController < ApplicationController
   def index
+  	@active_students = Student.active.chronological.paginate(:page => params[:page]).per_page(10)
+  	@inactive_students = Student.inactive.chronological.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
+  	#Do I really need this?
+  	@family = Student.family
+  	#subtract these 2 to get dropdown for registration
+  	@eligible_camps = Camp.upcoming.active.for_rating(@student.rating)
+  	@already_registered_camps = Student.camps.upcoming.active.for_rating(@student.rating)
+
   end
 
   def new
+  	@student = Students.new
   end
 
   def edit
   end
+
+  def create
+    @student = Registration.new(student_params)
+    if @student.save
+      redirect_to @student, notice: "The student #{@student.student.first_name @student.student.last_name} was added to the system."
+    else
+      render action: 'new'
+    end
+  end
+
+  def update
+    if @student.update(student_params)
+      redirect_to @student, notice: "The student #{@student.student.first_name @student.student.last_name} was revised in the system."
+    else
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @student.destroy
+    redirect_to students_url, notice: "The student #{@student.student.first_name @student.student.last_name} was removed from the system."
+  end
+
+  private
+    def set_student
+      @student = Registration.find(params[:id])
+    end
+
+    def student_params
+      params.require(:student).permit(:first_name, :last_name, :family_id, :date_of_birth, :rating, :active)
+    end
+end
+
 end
