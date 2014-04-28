@@ -2,8 +2,8 @@ class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   
   def index
-  	@active_locations = Location.alphabetical.paginate(:page => params[:page]).per_page(10)
-  	@inactive_locations = Location.alphabetical.paginate(:page => params[:page]).per_page(10)
+  	@active_locations = Location.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+  	@inactive_locations = Location.active.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
