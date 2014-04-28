@@ -22,27 +22,30 @@ class UsersController < ApplicationController
 
   def update
     current_user
-    # if @user.update(user_params)
-    #   redirect_to @user, notice: "#{@user.username} was revised in the system."
-    # else
-    #   render action: 'edit'
-    # end
+    if @user.update(user_params)
+      redirect_to @user, notice: "#{@user.username} was revised in the system."
+    else
+      render action: 'edit'
+    end
   end
 
   #not in lab13
-  # def destroy
-  #   @user.destroy
-  #   redirect_to users_url, notice: "#{@user.username} was removed from the system."
-  # end
+  def destroy
+    @user.destroy
+    redirect_to users_url, notice: "#{@user.username} was removed from the system."
+  end
 
   private
-    # not in lab13
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
+    def set_user
+      @user = User.find(params[:id])
+    end
 
     def user_params
-      params.require(:user).permit(:usename, :password, :password_confirmation, :instructor_id, :role, :active)
+      if current_user && current_user.role?(:admin)
+        params.require(:user).permit(:username, :instructor_id, :password, :password_confirmation, :role, :active)  
+      else
+        params.require(:user).permit(:username, :instructor_id, :password, :password_confirmation, :active)
+      end
     end
 end
 
