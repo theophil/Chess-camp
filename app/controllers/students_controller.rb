@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
 
   def show
   	#Do I really need this?
-  	@family = Student.family
+  	@family = @student.family
   	#subtract these 2 to get dropdown for registration
   	@eligible_camps = Camp.upcoming.active.for_rating(@student.rating)
   	@already_registered_camps = Student.camps.upcoming.active.for_rating(@student.rating)
