@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
 
   def create
   	adjust_ratings
-    @student = Registration.new(student_params)
+    @student = Student.new(student_params)
     if @student.save
       redirect_to @student, notice: "The student #{@student.student.first_name @student.student.last_name} was added to the system."
     else
@@ -48,7 +48,7 @@ class StudentsController < ApplicationController
 
   private
     def set_student
-      @student = Registration.find(params[:id])
+      @student = Student.find(params[:id])
     end
 
     def student_params
