@@ -1,0 +1,11 @@
+<% unless @registrations.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>S</h5>
+    <ul class="side-nav">
+      <% @registrations.each do |registration| %>
+        <li><%= link_to registration.camp.name, registration_path(registration.camp) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
