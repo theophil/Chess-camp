@@ -15,6 +15,9 @@
   <% end %>
   <br /><br />
 
+  <strong>Registrations (<%= @camp.registrations.size %>):&nbsp;&nbsp;</strong> 
+  <%= @camp.students %><br /><br />
+
 <strong>Time:&nbsp;&nbsp;</strong> 
   <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
 

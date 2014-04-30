@@ -9,9 +9,10 @@ class StudentsController < ApplicationController
   def show
   	#Do I really need this?
   	@family = @student.family
+    @camps = @student.camps.alphabetical.to_a
   	#subtract these 2 to get dropdown for registration
-  	@eligible_camps = Camp.upcoming.active.for_rating(@student.rating)
-  	@already_registered_camps = Student.camps.upcoming.active.for_rating(@student.rating)
+  	# @eligible_camps = Camp.upcoming.active.for_rating(@student.rating)
+  	# @already_registered_camps = Student.camps.upcoming.active.for_rating(@student.rating)
 
   end
 
@@ -26,7 +27,7 @@ class StudentsController < ApplicationController
   	adjust_ratings
     @student = Student.new(student_params)
     if @student.save
-      redirect_to @student, notice: "The student #{@student.student.first_name @student.student.last_name} was added to the system."
+      redirect_to @student, notice: "The student #{@student.first_name @student.last_name} was added to the system."
     else
       render action: 'new'
     end
@@ -35,7 +36,7 @@ class StudentsController < ApplicationController
   def update
   	adjust_ratings
     if @student.update(student_params)
-      redirect_to @student, notice: "The student #{@student.student.first_name @student.student.last_name} was revised in the system."
+      redirect_to @student, notice: "The student #{@student.first_name @student.last_name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -43,7 +44,7 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to students_url, notice: "The student #{@student.student.first_name @student.student.last_name} was removed from the system."
+    redirect_to students_url, notice: "The student #{@student.first_name @student.last_name} was removed from the system."
   end
 
   private

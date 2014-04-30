@@ -9,7 +9,7 @@
   <%= @student.rating==0 ? "Unrated" : @student.rating %><br /><br />
 
 <strong>DOB:&nbsp;&nbsp;</strong> 
-  <%= @student.date_of_birth %><br /><br />
+  <%= @student.date_of_birth.strftime('%m/%d/%Y') %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @student.active ? "Yes" : "No" %><br /><br />
