@@ -6,6 +6,9 @@ gem 'time_date_helpers', '0.0.2'
 
 gem 'jquery-ui-rails'
 
+#lab12
+gem "nested_form"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 

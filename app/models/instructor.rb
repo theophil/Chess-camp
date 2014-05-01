@@ -1,5 +1,7 @@
 class Instructor < ActiveRecord::Base
   include ChessCampHelpers
+
+  accepts_nested_attributes_for :users, reject_if: lambda { |user| user[:username].blank? }
   mount_uploader :picture, PictureUploader
 
   # relationships
