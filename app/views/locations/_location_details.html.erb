@@ -1,0 +1,19 @@
+<h3>Location Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @location.name %><br /><br />
+
+<strong>City:&nbsp;&nbsp;</strong> 
+  <%= @location.city %><br /><br />
+
+<strong>State:&nbsp;&nbsp;</strong> 
+  <%= @location.state %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @location.active ? "Yes" : "No" %><br /><br />
+
+<!-- <strong>Biography</strong><br />
+  <%# @location.bio.nil? ? "N/A" : @location.bio %><br /><br /> -->
+
+
+<%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>

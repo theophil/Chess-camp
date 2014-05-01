@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   	#alphabetical instead?
     @past_camps = @location.camps.past.chronological.to_a
   	@upcoming_camps = @location.camps.upcoming.chronological.to_a
+    @camps = @location.camps.chronological.to_a
   end
 
   def new
