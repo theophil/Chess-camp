@@ -9,7 +9,7 @@ class CampsController < ApplicationController
 
   def show
     @instructors = @camp.instructors.alphabetical.to_a
-    @students = @camp.students.alphabetical.to_a
+    @students = @camp.students.alphabetical.paginate(:page => params[:page]).per_page(3)
   end
 
   def new

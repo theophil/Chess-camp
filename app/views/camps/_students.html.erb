@@ -12,3 +12,7 @@
   </tr>
 <% end %>
 </table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate camp_registrations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
