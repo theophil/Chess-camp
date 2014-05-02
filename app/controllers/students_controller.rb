@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   def show
   	#Do I really need this?
   	@family = @student.family
-    @camps = @student.camps.alphabetical.to_a
+    @camps = @student.camps.alphabetical.paginate(:page => params[:page]).per_page(10)
   	#subtract these 2 to get dropdown for registration
   	# @eligible_camps = Camp.upcoming.active.for_rating(@student.rating)
   	# @already_registered_camps = Student.camps.upcoming.active.for_rating(@student.rating)

@@ -15,17 +15,15 @@
   <% end %>
   <br /><br />
 
-<strong>Registrations (<%= @camp.registrations.size %>):&nbsp;&nbsp;</strong>
-<%= render :partial => "students", locals: { camp_registrations: students } %>
-    <br />
-
 <strong>Time:&nbsp;&nbsp;</strong> 
   <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @camp.active ? "Yes" : "No" %><br /><br />
 
-
+<strong>Registrations (<%= @camp.registrations.size %>):&nbsp;&nbsp;</strong>
+<%= render :partial => "camp_students", locals: { camp_registrations: students } %>
+    <br />
 
 <%= link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
 <%= link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>
