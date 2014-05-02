@@ -2,17 +2,23 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @location.name %><br /><br />
 
-<strong>City:&nbsp;&nbsp;</strong> 
-  <%= @location.city %><br /><br />
+ <strong>Street 1:&nbsp;&nbsp;</strong> 
+  <%= @location.street_1 %><br /><br />
 
-<strong>State:&nbsp;&nbsp;</strong> 
-  <%= @location.state %><br /><br />
+<strong>Street 2:&nbsp;&nbsp;</strong> 
+  <%= @location.street_2 %><br /><br />
+
+<strong>City, State and Zip:&nbsp;&nbsp;</strong> 
+  <%= "#{@location.city}, #{@location.state} #{@location.zip}" %><br /><br />
+
+ <strong>Maximum Capacity:&nbsp;&nbsp;</strong> 
+  <%= @location.max_capacity %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @location.active ? "Yes" : "No" %><br /><br />
 
-<!-- <strong>Biography</strong><br />
-  <%# @location.bio.nil? ? "N/A" : @location.bio %><br /><br /> -->
+<strong>Map</strong><br />
+  <%= render :partial => "map", locals: {lat: @location.latitude, lon: @location.longitude} %><br /><br />
 
 
 <%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;

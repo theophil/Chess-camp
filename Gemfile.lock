@@ -224,6 +224,7 @@ DEPENDENCIES
   cancancan
   capybara
   carrierwave
+  chronic (= 0.10.2)
   coffee-rails (~> 4.0.0)
   cucumber-rails
   database_cleaner

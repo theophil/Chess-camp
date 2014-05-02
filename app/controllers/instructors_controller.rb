@@ -18,6 +18,7 @@ class InstructorsController < ApplicationController
   end
 
   def edit
+    @instructor.build_user if @instructor.user.nil?
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
   end

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'chronic', '0.10.2'
+
 gem 'cancancan'
 
 gem 'time_date_helpers', '0.0.2'
