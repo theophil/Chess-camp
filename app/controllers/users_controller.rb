@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id #added via lab13
-      redirect_to @user, notice: "#{@user.username} was added to the system."
+      redirect_to @user, notice: "#{@user.instructor.proper_name} was added to the system."
     else
       render action: 'new'
     end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     current_user
     if @user.update(user_params)
-      redirect_to @user, notice: "#{@user.username} was revised in the system."
+      redirect_to @user, notice: "#{@user.instructor.proper_name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   #not in lab13
   def destroy
     @user.destroy
-    redirect_to users_url, notice: "#{@user.username} was removed from the system."
+    redirect_to users_url, notice: "#{@user.instructor.proper_name} was removed from the system."
   end
 
   private
