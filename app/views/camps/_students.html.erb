@@ -1,0 +1,14 @@
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Rating</th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td align="left"><%= link_to student.name, student_path(student) %></td>
+    <td align="center"><%= student.rating %></td>
+  </tr>
+<% end %>
+</table>

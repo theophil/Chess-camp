@@ -6,5 +6,6 @@
       <%= f.input :username %>
       <%= f.input :password %>
       <%= f.input :password_confirmation %>
+      <%= f.input :role, collection: [['Administrator','admin'],['Instructor','instructor']], prompt: "Select role..."
     </div>
   </div>
