@@ -19,7 +19,36 @@
 
 $(function(){ $(document).foundation(); });
 
+// $(function() {
+//   $('.datepicker').datepicker();
+// });
+
+// Datepicker code
 $(function() {
-  $('.datepicker').datepicker();
+  $(".datepicker").datepicker({
+    format: 'mm/dd/YYYY'
+  });
 });
+
+// // Sticky footer js
+// // Thanks to Charles Smith for this -- http://foundation.zurb.com/forum/posts/629-sticky-footer
+// $(window).bind("load", function () {
+//   var footer = $("#footer");
+//   var pos = footer.position();
+//   var height = $(window).height();
+//   height = height - pos.top;
+//   height = height - footer.height();
+//   if (height > 0) {
+//       footer.css({
+//           'margin-top': height + 'px'
+//       });
+//   }
+// });
+
+// // Flash fade
+// $(function() {
+//    $('.alert-box').fadeIn('normal', function() {
+//       $(this).delay(3700).fadeOut();
+//    });
+// });
 

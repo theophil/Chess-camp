@@ -15,6 +15,12 @@
   <% end %>
   <br /><br />
 
+<strong>Description:&nbsp;&nbsp;</strong><br /> 
+  <%= @camp.curriculum.description %><br /><br />
+
+<strong>Ratings Range:&nbsp;&nbsp;</strong> 
+  <%= @camp.curriculum.min_rating.zero? ? "Unrated" : @camp.curriculum.min_rating %> - <%= @camp.curriculum.max_rating %><br /><br />
+
 <strong>Time:&nbsp;&nbsp;</strong> 
   <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
 
