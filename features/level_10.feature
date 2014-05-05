@@ -16,7 +16,6 @@ Feature: Manage User Accounts
     And I fill in "instructor_user_attributes_password_confirmation" with "secret"
     And I select "Instructor" from "instructor_user_attributes_role"
     And I press "Update Instructor"
-    Then show me the page
     Then I should see "Stafford Brunk was revised in the system"
     And I should see "Role"
     And I should see "instructor"

@@ -5,7 +5,9 @@ class Ability
     user ||= User.new
     if user.role? :admin
       can :manage, :all
-    else
+    elsif user.role? :instructor
+      can :manage, :self
+    else        
       #regular users can read all for now...
       can :read, :all
     end
