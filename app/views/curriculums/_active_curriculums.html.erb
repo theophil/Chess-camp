@@ -1,3 +1,4 @@
+<% unless @active_curriculums.empty?%>
 <h3>Active Curriculums</h3>
 
 <table class="table">
@@ -22,3 +23,7 @@
 <span class="paginate">
 <%= will_paginate @active_curriculums, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 </span>
+
+<%else%>
+<h3>No Active Curriculums</h3>
+<%end%>

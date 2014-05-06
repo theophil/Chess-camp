@@ -14,18 +14,13 @@
   <body>
     <%= render :partial => "partials/nav" %>
     
-    <div id="container">
-      
-      </div> <!--login-->
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-  </div> <!--container-->
-    
+    <!--Main content-->
     <div class="row">
       <div class="small-12 columns" id="main_content">
+        <!-- <div class="panel clearfix"> -->
         <%= render :partial => "partials/flash" %>
         <%= yield %>
+      <!-- </div> --><!--clearfix-->
       </div> <!--small 12 columns-->
     </div> <!--row-->
 
