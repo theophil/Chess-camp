@@ -15,6 +15,7 @@ class CampsController < ApplicationController
     @active_students_for_rating = Student.active.alphabetical.at_or_above_rating(@camp.curriculum.min_rating).below_rating(@camp.curriculum.max_rating).to_a
     @students_already_registered =  @camp.students.alphabetical.to_a
     @fully_eligible_students = @active_students_for_rating-@students_already_registered
+    @registration = Registration.new
   end
 
   def new

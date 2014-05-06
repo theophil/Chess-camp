@@ -7,7 +7,7 @@ class Ability
       can :manage, :all
     elsif user.role? :instructor
       can :index, Instructor
-      # instructor can read own profile
+      # instructor can show, update, and edit own user profile
       can :show, User do |u|  
         u.id == user.id
       end
@@ -17,12 +17,27 @@ class Ability
       can :edit, User do |u|
         u.id == user.id
       end
+      # instructor can show, update, and edit own instructor profile
       can :show, Instructor do |i|  
         i.id == user.instructor.id
       end
-      # instructor can update  own profile
       can :update, Instructor do |i|  
         i.id == user.instructor.id
+      end
+      #view all camps to get to ultimately get to their own
+      can :index, Camp
+      # instructors can read their own camps' data
+      can :show, Camp do |this_camp|  
+        my_camps = user.instructor.camps
+        my_camps.include? this_camp.id 
+      end
+      can :index, Student
+      can :show, Student do |this_student|
+        my_camps = user.instructor.camps
+        my_students = my_camps.students
+        flattened_students = my_students.flatten
+        student_ids = flattened_students.map(&:id)
+        student_ids.include? this_student.id
       end
     else        
       #regular users can read all for now...

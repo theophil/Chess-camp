@@ -29,7 +29,7 @@ class StudentsController < ApplicationController
   	adjust_ratings
     @student = Student.new(student_params)
     if @student.save
-      redirect_to @student, notice: "The student #{@student.first_name @student.last_name} was added to the system."
+      redirect_to @student, notice: "The student #{@student.first_name} #{@student.last_name} was added to the system."
     else
       render action: 'new'
     end
@@ -38,7 +38,7 @@ class StudentsController < ApplicationController
   def update
   	adjust_ratings
     if @student.update(student_params)
-      redirect_to @student, notice: "The student #{@student.first_name @student.last_name} was revised in the system."
+      redirect_to @student, notice: "The student #{@student.first_name} #{@student.last_name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -46,7 +46,7 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to students_url, notice: "The student #{@student.first_name @student.last_name} was removed from the system."
+    redirect_to students_url, notice: "The student #{@student.first_name} #{@student.last_name} was removed from the system."
   end
 
   private
