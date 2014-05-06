@@ -1,5 +1,7 @@
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:edit, :update, :destroy]
+  authorize_resource
+  before_action :check_login
 
   def new
     @registration = Registration.new

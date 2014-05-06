@@ -30,6 +30,13 @@ $(function() {
   });
 });
 
+// Flash fade
+// $(function() {
+//    $('.alert-box').fadeIn('normal', function() {
+//       $(this).delay(3700).fadeOut();
+//    });
+// });
+
 // // Sticky footer js
 // // Thanks to Charles Smith for this -- http://foundation.zurb.com/forum/posts/629-sticky-footer
 // $(window).bind("load", function () {
@@ -43,12 +50,5 @@ $(function() {
 //           'margin-top': height + 'px'
 //       });
 //   }
-// });
-
-// // Flash fade
-// $(function() {
-//    $('.alert-box').fadeIn('normal', function() {
-//       $(this).delay(3700).fadeOut();
-//    });
 // });
 

@@ -15,6 +15,7 @@
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
 
 <% unless @instructor.user.nil? %>
+
 <strong>Role:&nbsp;&nbsp;</strong> 
   <%= @instructor.user.role %><br /><br />
 
@@ -23,6 +24,7 @@
 
  <strong>Username:&nbsp;&nbsp;</strong> 
   <%= @instructor.user.username %><br /><br />
-  <% end %>
+
+<% end %>
 
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;

@@ -6,7 +6,24 @@ class Ability
     if user.role? :admin
       can :manage, :all
     elsif user.role? :instructor
-      can :manage, :self
+      can :index, Instructor
+      # instructor can read own profile
+      can :show, User do |u|  
+        u.id == user.id
+      end
+      can :update, User do |u|  
+        u.id == user.id
+      end
+      can :edit, User do |u|
+        u.id == user.id
+      end
+      can :show, Instructor do |i|  
+        i.id == user.instructor.id
+      end
+      # instructor can update  own profile
+      can :update, Instructor do |i|  
+        i.id == user.instructor.id
+      end
     else        
       #regular users can read all for now...
       can :read, :all

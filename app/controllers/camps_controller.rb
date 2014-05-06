@@ -1,5 +1,7 @@
 class CampsController < ApplicationController
   before_action :set_camp, only: [:show, :edit, :update, :destroy]
+  authorize_resource
+  before_action :check_login
 
   def index
     @upcoming_camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
@@ -10,6 +12,9 @@ class CampsController < ApplicationController
   def show
     @instructors = @camp.instructors.alphabetical.to_a
     @students = @camp.students.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @active_students_for_rating = Student.active.alphabetical.at_or_above_rating(@camp.curriculum.min_rating).below_rating(@camp.curriculum.max_rating).to_a
+    @students_already_registered =  @camp.students.alphabetical.to_a
+    @fully_eligible_students = @active_students_for_rating-@students_already_registered
   end
 
   def new
@@ -47,6 +52,6 @@ class CampsController < ApplicationController
     end
 
     def camp_params
-      params.require(:camp).permit(:curriculum_id, :cost, :start_date, :end_date, :time_slot, :max_students, :active, :location_id, :instructor_ids => [])
+      params.require(:camp).permit(:curriculum_id, :cost, :start_date, :end_date, :time_slot, :max_students, :active, :location_id, :instructor_ids => [], :student_ids => [])
     end
 end

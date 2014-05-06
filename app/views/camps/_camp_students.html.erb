@@ -8,7 +8,7 @@
 <% @students.each do |student| %>
   <tr>
     <td align="left"><%= link_to student.name, student_path(student) %></td>
-    <td align="center"><%= student.rating %></td>
+    <td align="center"><%= student.rating.zero? ? "Unrated" : student.rating %></td>
   </tr>
 <% end %>
 </table>
