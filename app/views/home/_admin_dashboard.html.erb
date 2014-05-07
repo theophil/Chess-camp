@@ -1,0 +1,32 @@
+<h4>Camps and their # of Registrations || Instructors and their # of Camps</h4>
+
+<table class="table">
+  <tr>
+    <th align="center">Camps</th>
+  </tr>
+
+<% @camps.each do |camp| %>
+  <tr>
+    <td><%= link_to "#{camp.name} #{(camp.registrations.size)}", camp_path(camp) %></td>
+  </tr>
+<%end%>
+</table>
+
+<table class="table">
+  <tr>
+    <th align="center">Instructors</th>
+  </tr>
+
+<% @instructors.each do |instructor| %>
+  <tr>
+    <td><%= link_to "#{instructor.name} #{(instructor.camps.size)}", instructor_path(instructor) %></td>
+  </tr>
+<%end%>
+
+</table>
+
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
