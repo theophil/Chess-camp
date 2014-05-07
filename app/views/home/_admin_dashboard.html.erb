@@ -1,22 +1,22 @@
-<h4>Camps and their # of Registrations || Instructors and their # of Camps</h4>
+<h4> Your Camps and their # of Registrations || Your Instructors and their # of Camps</h4>
 
 <div class="row">
   <div class="small-6 columns">
 <table class="table">
   <tr>
-    <th align="left">Camps</th>
+    <th align="left">Chronological Camps</th>
     <th>Registrations</th>
     <th></th>
   </tr>
 
 <% @upcoming_camps_for_admin.each do |camp| %>
-  <% if !camp.registrations.empty? %>
+  <%# if !camp.registrations.empty? %>
   <tr>
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.registrations.size %></td>
     <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
   </tr>
-  <% end %>
+  <%# end %>
 <%end%>
 </table>
 </div><!--small 6 columns-->
@@ -26,6 +26,7 @@
   <tr>
     <th align="left">Instructors</th>
     <th># Camps</th>
+    <th>Active?</th>
     <th></th>
   </tr>
 
@@ -33,6 +34,7 @@
   <tr>
     <td><%= link_to instructor.name, instructor_path(instructor) %></td>
     <td align="center"><%= instructor.camps.size %></td>
+    <td><%= instructor.active ? "Yes" : "No" %></td>
     <td><%= link_to 'Edit', edit_instructor_path(instructor), class: "button tiny radius" %></td>
   </tr>
 <%end%>
@@ -44,5 +46,9 @@
 
 <!-- Add the pagination using will_paginate gem -->
 <span class="paginate">
-<%= will_paginate @instructors, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+<%= will_paginate @instructors, :label => "Instructors", :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<span class="paginate">
+<%= will_paginate @upcoming_camps_for_admin, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 </span>

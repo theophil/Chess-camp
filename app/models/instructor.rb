@@ -1,7 +1,6 @@
 class Instructor < ActiveRecord::Base
   include ChessCampHelpers
 
-
   mount_uploader :picture, PictureUploader
 
   # relationships

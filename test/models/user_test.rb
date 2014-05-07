@@ -2,8 +2,6 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
-  should accept_nested_attributes_for(:users)
-
   should belong_to(:instructor)
   should have_secure_password
 

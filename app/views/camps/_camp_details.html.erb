@@ -30,11 +30,7 @@
 <strong>Registrations (<%= @camp.registrations.size %>):&nbsp;&nbsp;</strong>
 <%= render :partial => "camp_students", locals: { camp_registrations: students } %>
     <br />
-
-<!-- <strong>Register a student</strong>
-<%# render :partial => "registrations/register_student_form", locals: { eligible_students: @fully_eligible_students } %>
-    <br />
- -->
+    
  <%= link_to "Register a student for this camp", new_registration_path(camp_id: @camp.id), class: "button tiny radius" %>&nbsp;&nbsp;
 
 <%= link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;

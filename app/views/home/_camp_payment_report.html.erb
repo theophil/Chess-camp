@@ -1,0 +1,24 @@
+<h4>Camps Payment Report</h4>
+
+<table class="table">
+  <tr>
+    <th align="left">Family Name</th>
+    <th>Payment Status</th>
+    <th></th>
+  </tr>
+
+<% @camps_with_registrations.each do |camp| %>
+  <%# if !camp.registrations.empty? %>
+  <tr>
+    <td><%= link_to camp.registration.family.name, camp_path(camp) %></td>
+    <td><%= camp.registration.payment_status %></td>
+    <td><%= link_to 'Edit', edit_family_path(camp.registration.family), class: "button tiny radius" %></td>
+  </tr>
+  <%# end %>
+<%end%>
+</table>
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @camps_with_registrations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
