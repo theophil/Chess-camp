@@ -16,7 +16,7 @@ module Contexts
 
     def create_inactive_locations
       @sqhill = FactoryGirl.create(:location, name: "Squirrel Hill", street_1: "5738 Forbes Avenue", street_2: nil, city: "Pittsburgh", zip: "15217", active: false)
-      # sleep 1
+      sleep 1
     end
 
     def delete_inactive_locations
@@ -25,7 +25,7 @@ module Contexts
 
     def create_locations_never_used_by_camps
       @acac = FactoryGirl.create(:location, name: "ACAC", street_1: "250 East Ohio St", street_2: nil, city: "Pittsburgh", zip: "15212")
-      # sleep 1
+      sleep 1
     end
 
     def delete_locations_never_used_by_camps

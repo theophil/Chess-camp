@@ -10,11 +10,13 @@
   </tr>
 
 <% @upcoming_camps_for_admin.each do |camp| %>
+  <% if !camp.registrations.empty? %>
   <tr>
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.registrations.size %></td>
     <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
   </tr>
+  <% end %>
 <%end%>
 </table>
 </div><!--small 6 columns-->
@@ -41,3 +43,6 @@
 
 
 <!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @instructors, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
