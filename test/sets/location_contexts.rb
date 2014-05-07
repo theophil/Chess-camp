@@ -3,10 +3,10 @@ module Contexts
     # create your contexts here...
     def create_active_locations
       @north = FactoryGirl.create(:location, name: "North Side", street_1: "801 Union Place", street_2: nil, city: "Pittsburgh", zip: "15212")
-      # sleep 1
+      sleep 1
       # switched order so alphabetical is not same as order created
       @cmu = FactoryGirl.create(:location) 
-      # sleep 1
+      sleep 1
     end
 
     def delete_active_locations

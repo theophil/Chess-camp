@@ -5,6 +5,7 @@ class RegistrationsController < ApplicationController
 
   def new
     @registration = Registration.new
+    @registration.camp_id = params[:camp_id] unless params[:camp_id].nil?
   end
 
   def edit
