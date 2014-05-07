@@ -29,12 +29,13 @@ class Ability
       # instructors can read their own camps' data
       can :show, Camp do |this_camp|  
         my_camps = user.instructor.camps
-        my_camps.include? this_camp.id 
+        my_camps_ids = my_camps.map { |c| c.id  }
+        my_camps_ids.include? this_camp.id 
       end
       can :index, Student
       can :show, Student do |this_student|
         my_camps = user.instructor.camps
-        my_students = my_camps.students
+        my_students = my_camps.map{|camp| camp.students }
         flattened_students = my_students.flatten
         student_ids = flattened_students.map(&:id)
         student_ids.include? this_student.id

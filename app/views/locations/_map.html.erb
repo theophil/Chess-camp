@@ -7,16 +7,17 @@
     var map;
       function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng(<%=lat%>,<%=lon%>),
-          zoom: 8
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
         var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(<%=lat%>, <%=lon%>),
+          position: new google.maps.LatLng(-34.397, 150.644),
           title: '<%= nam %>',
           map: map
-          })
+          });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
