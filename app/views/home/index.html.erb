@@ -1,9 +1,17 @@
 <h1>Welcome to A&amp;M Chess Camp!</h1>
 
-<% if logged_in? %>
-
-<p><%= image_tag 'boys_playing_at_home.JPG' %> Enter into the world of A&amp;M Chess Camp. Brought to you by Alex and Mark Heimann. (As you can see, they have been training to serve your children their their whole lives).
+<p> Enter into the world of A&amp;M Chess Camp. Brought to you by Alex and Mark Heimann. (As you can see, they have been training to serve your children their their whole lives).
 </p>
+
+<!-- <p><%# image_tag 'boys_playing_at_home.JPG' %> Enter into the world of A&amp;M Chess Camp. Brought to you by Alex and Mark Heimann. (As you can see, they have been training to serve your children their their whole lives).
+</p> -->
+
+<% if logged_in? %>
+	<% if current_user.role == 'admin' %>
+		<%= render :partial => "admin_dashboard" %>
+	<% else %><!--instructor-->
+		<%= render :partial => "instructor_dashboard" %>
+	<% end %>
 
 <% else %>
 
