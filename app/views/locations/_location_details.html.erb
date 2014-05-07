@@ -17,7 +17,7 @@
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @location.active ? "Yes" : "No" %><br /><br />
 
-<strong>Map</strong><br />
+<strong>Map:</strong><br /><br />
   <%# render :partial => "map", locals: {lat: @location.latitude, lon: @location.longitude, nam: @location.name} %>
 
     <%= image_tag @location.create_map_link %><br /><br />
