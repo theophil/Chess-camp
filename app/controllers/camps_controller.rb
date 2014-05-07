@@ -14,7 +14,7 @@ class CampsController < ApplicationController
     @students = @camp.students.alphabetical.paginate(:page => params[:page]).per_page(10)
     @active_students_for_rating = Student.active.alphabetical.at_or_above_rating(@camp.curriculum.min_rating).below_rating(@camp.curriculum.max_rating).to_a
     @students_already_registered =  @camp.students.alphabetical.to_a
-    @fully_eligible_students = @active_students_for_rating-@students_already_registered
+    @fully_eligible_students = @active_students_for_rating-@students_already_registered.to_a
     @registration = Registration.new
   end
 

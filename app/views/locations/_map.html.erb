@@ -3,7 +3,7 @@
     body { height: 100%; margin: 0; padding: 0 }
     #map-canvas { height: 100% }
   </style>
-    <script type="text/javascript">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRRQgBv9OAQ5ohEYrFwd1PX97V-VZv00&sensor=false">
     var map;
       function initialize() {
         var mapOptions = {
@@ -21,4 +21,4 @@
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-    <div id="map-canvas" onload="initialize()" style="width:300px; height:300px"/>
+    <div id="map-canvas" onload="initialize()" style="width:300px; height:300px"></div>

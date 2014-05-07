@@ -1,9 +1,14 @@
 <%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
     
-    <%= f.input :camp_id %><!--should be passed in via camp details-->
-    <%= f.input :student_id, collection: eligible_students, label: "Students", prompt: "Select student..." %>
-    <%= f.input :payment_status, collection: [['Deposit','deposit'],['Full','full']], prompt: "Select payment_status" %>
+	<div class="row">
+      <div class="small-6 columns">
+    <h3><%= controller.action_name.capitalize %> Student for Camp</h3>
+    <%= f.input :camp_id, collection: Camp.active.chronological, label: "Camps", prompt: "Select camp..." %><!--should be passed in via camp details-->
+    <%= f.input :student_id, collection: @fully_eligible_students, label: "Students", prompt: "Select student..." %>
+    <%= f.input :payment_status, collection: [['Deposit','deposit'],['Full','full']], prompt: "Select payment status" %>
     <%= f.input :points_earned %>
+	  </div><!--small 6 cols-->
+	</div><!--row-->
 
     <div class="form-actions">
       <%= f.submit nil, class: 'button radius' %>

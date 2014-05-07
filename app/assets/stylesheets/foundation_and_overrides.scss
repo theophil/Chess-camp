@@ -28,11 +28,6 @@
 
 // Grid
 
- .body
-{
-background-image:url('chessboard.gif');
-}
-
 // $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
@@ -1198,6 +1193,8 @@ $topbar-link-bg-hover: #FAF2F0;
 
 // $include-html-visibility-classes: $include-html-classes;
 
+@import 'foundation';
+
 img.left {
   float: left;
   padding-right: 15px;
@@ -1262,4 +1259,9 @@ select.date { width: 95px; }
 #instructor_bio { height: 7rem; }
 #curriculum_description { height: 7rem; }
 
-@import 'foundation';
+body
+{
+	background-color: none;
+	background-image:url('./chessboard.gif');
+}
+
