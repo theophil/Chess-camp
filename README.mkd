@@ -2,6 +2,9 @@
 
 Extra credit: I have included a dynamic map for each location as opposed to a static map
 
+I have put my registration for a student in the camp show page
+
+### Below as written by ProfH
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
 
 Students can use this as a base to work off of in phase 5 -- HOWEVER, the basic design, color scheme, images and the like must be modified from the tepid design provided here.  (BTW, the text on the static pages like home, about, and contact are purposefully snarky -- you would never use this in a real app and we expect you to modify it to something more appropriate.)  We will reiterate this warning in phase 5 but we are saying it now as well to maximize the opportunities to get the word out: **if students stay with the CSS, images and text used here they can expect to lose 10 points on their phase 5 grade.**  (If you want to have fun with this project you have to make it your own and style it as you see fit.)

@@ -1,7 +1,9 @@
 <%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
     
+    <%= f.input :camp_id %><!--should be passed in via camp details-->
     <%= f.input :student_id, collection: eligible_students, label: "Students", prompt: "Select student..." %>
     <%= f.input :payment_status, collection: [['Deposit','deposit'],['Full','full']], prompt: "Select payment_status" %>
+    <%= f.input :points_earned %>
 
     <div class="form-actions">
       <%= f.submit nil, class: 'button radius' %>
