@@ -18,9 +18,9 @@
   <%= @location.active ? "Yes" : "No" %><br /><br />
 
 <strong>Map:</strong><br /><br />
-  <%# render :partial => "map", locals: {lat: @location.latitude, lon: @location.longitude, nam: @location.name} %>
+  <%= render :partial => "map", locals: {lat: @location.latitude, lon: @location.longitude, nam: @location.name} %>
 
-    <%= image_tag @location.create_map_link %><br /><br />
+    <%# image_tag @location.create_map_link %><br /><br />
 
 
 <%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;

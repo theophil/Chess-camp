@@ -42,7 +42,7 @@ class Ability
       end
     else        
       #regular users can read all for now...
-      can :read, :all
+      can :read, Camp
     end
     # Define abilities for the passed in user here. For example:
     #

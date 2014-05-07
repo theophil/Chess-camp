@@ -3,7 +3,8 @@
     body { height: 100%; margin: 0; padding: 0 }
     #map-canvas { height: 100% }
   </style>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRRQgBv9OAQ5ohEYrFwd1PX97V-VZv00&sensor=false">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRRQgBv9OAQ5ohEYrFwd1PX97V-VZv00&sensor=false"></script>
+    <script>
     var map;
       function initialize() {
         var mapOptions = {
@@ -13,8 +14,11 @@
         };
         map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+        addMarker();
+      }
+      function addMarker() {
         var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(<%=lat%>,<%=lon%>),
+          position: new google.maps.LatLng(<%=lat%>, <%=lon%>),
           title: '<%= nam %>',
           map: map
           });

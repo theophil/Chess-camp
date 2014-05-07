@@ -4,7 +4,7 @@ I have put my registration for a student in the camp show page
 
 I essentially have double flash messages and neither I nor ProfH could figure out why.
 
-Extra credit: I may have included a dynamic map for each location as opposed to a static map
+Extra credit: I have included a dynamic map for each location as opposed to a static map
 
 ### Below as written by ProfH
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
