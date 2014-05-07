@@ -6,16 +6,14 @@
     <th>Email</th>
     <th>Phone</th>
     <th>Bio</th>
-    <th>Pic</th>
     <th></th>
   </tr>
 
   <tr>
-    <td><%= link_to current_user.instructor.proper_name, current_user.instructor_path(current_user.instructor) %></td>
+    <td><%= link_to current_user.instructor.proper_name, instructor_path(current_user.instructor) %></td>
     <td align="center"><%= current_user.instructor.email %></td>
     <td align="center"><%= number_to_phone(current_user.instructor.phone) %></td>
     <td><%= current_user.instructor.bio %></td>
-    <td><%= current_user.instructor.picture %></td> <!--current_user.instructor.curriculum.max_rating.nil? ? "No maximum" : "#{current_user.instructor.curriculum.max_rating}" %></td>-->
-    <td><%= link_to 'Edit', edit_current_user.instructor_path(current_user.instructor), class: "button tiny radius" %></td>
+    <td><%= link_to 'Edit', edit_instructor_path(current_user.instructor), class: "button tiny radius" %></td>
   </tr>
 </table>

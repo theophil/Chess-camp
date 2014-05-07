@@ -1,0 +1,11 @@
+<% unless @instructor_upcoming_camps.empty? %>
+  <h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>Your Upcoming Camps</h5>
+    <ul class="side-nav">
+      <% @instructor_upcoming_camps.each do |camp| %>
+        <li><%= link_to camp.name, camp_path(camp) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
