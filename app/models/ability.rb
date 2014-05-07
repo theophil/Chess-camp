@@ -40,9 +40,9 @@ class Ability
         student_ids = flattened_students.map(&:id)
         student_ids.include? this_student.id
       end
-    else        
+    else      
       #regular users can read all for now...
-      can :read, Camp
+      can :show, Camp
     end
     # Define abilities for the passed in user here. For example:
     #

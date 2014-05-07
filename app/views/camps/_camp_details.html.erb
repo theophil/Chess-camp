@@ -32,6 +32,19 @@
 <strong>Registrations (<%= @camp.registrations.size %>):&nbsp;&nbsp;</strong><br /><br />
 <%= render :partial => "camp_students", locals: { camp_registrations: students } %>
 
+<strong>Location details below:</strong><br /><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @camp.location.name %><br /><br />
+
+ <strong>Street 1:&nbsp;&nbsp;</strong> 
+  <%= @camp.location.street_1 %><br /><br />
+
+<strong>Street 2:&nbsp;&nbsp;</strong> 
+  <%= @camp.location.street_2 %><br /><br />
+
+<strong>City, State and Zip:&nbsp;&nbsp;</strong> 
+  <%= "#{@camp.location.city}, #{@camp.location.state} #{@camp.location.zip}" %><br /><br />
+
 <strong>Map:</strong><br /><br />
   <%= render :partial => "locations/map", locals: {lat: @camp.location.latitude, lon: @camp.location.longitude, nam: @camp.location.name} %><br /><br />
     
