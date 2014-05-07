@@ -6,7 +6,7 @@
     <th>Start On</th>
     <th>Time</th>
     <th>Description</th>
-    <th>Ratings</th>
+    <th>Min-Max Ratings</th>
     <th></th>
   </tr>
 
@@ -17,7 +17,6 @@
     <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
     <td><%= camp.curriculum.description %></td>
     <td><%= camp.curriculum.min_rating.zero? ? "Unrated - " : "#{camp.curriculum.min_rating} - " + "#{camp.curriculum.max_rating }" %></td> <!--camp.curriculum.max_rating.nil? ? "No maximum" : "#{camp.curriculum.max_rating}" %></td>-->
-    <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
   </tr>
 <% end %>
 </table>

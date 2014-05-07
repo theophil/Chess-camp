@@ -24,8 +24,10 @@
 <strong>Time:&nbsp;&nbsp;</strong> 
   <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
 
+<% if logged_in? %>
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @camp.active ? "Yes" : "No" %><br /><br />
+  <% end %>
 
 <strong>Registrations (<%= @camp.registrations.size %>):&nbsp;&nbsp;</strong>
 <%= render :partial => "camp_students", locals: { camp_registrations: students } %>

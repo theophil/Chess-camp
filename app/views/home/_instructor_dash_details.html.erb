@@ -2,6 +2,9 @@
 
 <table class="table">
   <tr>
+    <% unless current_user.instructor.picture_url.nil? %>
+    <th>Pic</th>
+    <% end %>
     <th>Name</th>
     <th>Email</th>
     <th>Phone</th>
@@ -10,6 +13,9 @@
   </tr>
 
   <tr>
+    <% unless current_user.instructor.picture_url.nil? %>
+      <td><%= image_tag current_user.instructor.picture_url %></td>
+    <% end %>
     <td><%= link_to current_user.instructor.proper_name, instructor_path(current_user.instructor) %></td>
     <td align="center"><%= current_user.instructor.email %></td>
     <td align="center"><%= number_to_phone(current_user.instructor.phone) %></td>
