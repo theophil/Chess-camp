@@ -1,32 +1,39 @@
 <h4>Camps and their # of Registrations || Instructors and their # of Camps</h4>
 
+<div class="row">
+  <div class="small-6 columns">
 <table class="table">
   <tr>
-    <th align="center">Camps</th>
+    <th align="left">Camps</th>
+    <th></th>
   </tr>
 
 <% @camps.each do |camp| %>
   <tr>
     <td><%= link_to "#{camp.name} #{(camp.registrations.size)}", camp_path(camp) %></td>
+    <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
   </tr>
 <%end%>
 </table>
+</div><!--small 6 columns-->
 
+<div class="small-6 columns">
 <table class="table">
   <tr>
-    <th align="center">Instructors</th>
+    <th align="left">Instructors</th>
+    <th></th>
   </tr>
 
 <% @instructors.each do |instructor| %>
   <tr>
     <td><%= link_to "#{instructor.name} #{(instructor.camps.size)}", instructor_path(instructor) %></td>
+    <td><%= link_to 'Edit', edit_instructor_path(instructor), class: "button tiny radius" %></td>
   </tr>
 <%end%>
 
 </table>
+</div><!--small 6 columns-->
+</div><!--class row-->
 
 
 <!-- Add the pagination using will_paginate gem -->
-<span class="paginate">
-<%= will_paginate @camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-</span>
