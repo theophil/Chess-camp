@@ -1,5 +1,7 @@
 ## 67-272: Chess Camp Phase 5 Starter ##
 
+My instructor controller check login may be causing my find_by_username to be uncovered in terms of 100% test coverage
+
 I have put my registration for a student in the camp show page
 
 I essentially have double flash messages and neither I nor ProfH could figure out why.
