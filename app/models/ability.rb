@@ -43,6 +43,7 @@ class Ability
     else      
       #regular users can read all for now...
       can :show, Camp
+      can :show, Instructor
     end
     # Define abilities for the passed in user here. For example:
     #

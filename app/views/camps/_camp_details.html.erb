@@ -47,8 +47,10 @@
 
 <strong>Map:</strong><br /><br />
   <%= render :partial => "locations/map", locals: {lat: @camp.location.latitude, lon: @camp.location.longitude, nam: @camp.location.name} %><br /><br />
-    
+
+<% if logged_in? %>
  <%= link_to "Register a student for this camp", new_registration_path(camp_id: @camp.id), class: "button tiny radius" %>&nbsp;&nbsp;
 
 <%= link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
 <%= link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<%end%>

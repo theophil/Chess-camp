@@ -35,4 +35,6 @@
   <%end%><!--user nil-->
   <%end%><!--logged in-->
 
+<% if logged_in? %>
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+<%end %>
